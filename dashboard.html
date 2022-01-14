@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <title>SIBANPEM - Sistem Informasi Bantuan Pemerintah</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="/assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
+    <link href="/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="/assets/plugins/morrisjs/morris.css" rel="stylesheet">
+    <!-- Vector CSS 
+    <link href="/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />-->
+    <!-- Custom CSS -->
+    <link href="/assets/template/back/css/style.css?v=1.1" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="/assets/template/back/css/colors/blue.css?v=1.1" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <!-- ============================================================== -->
+    <!-- Add Style or custom CSS Here -->
+    <!-- ============================================================== -->
+
+
+    <link rel="stylesheet" href="/assets/plugins/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="/assets/peta/css/leaflet-geoman.css" />
+    <link rel="stylesheet" href="/assets/peta/css/L.Control.Locate.min.css" />
+    <link rel="stylesheet" href="/assets/peta/css/MarkerCluster.css" />
+    <link rel="stylesheet" href="/assets/peta/css/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="/assets/peta/css/leaflet-measure-path.css" />
+    <link rel="stylesheet" href="/assets/peta/css/mapbox-gl.css" />
+    <link rel="stylesheet" href="/assets/peta/css/leaflet.groupedlayercontrol.min.css" />
+    <link rel="stylesheet" href="/assets/peta/css/peta.css">
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <!--div class="navbar-header"-->
+                <!--a class="navbar-brand" href="< ?php echo base_url() ?>">
+
+                        < !-- Logo icon -<b>
+                            <! --You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                <!-- Dark Logo icon -->
+                <!--img src="< ?php echo base_url('assets/') ?>images/logo-icon.png" alt="homepage"
+                                class="dark-logo" />
+                            < !-- Light Logo icon -->
+                <!--img src="< ?php echo base_url('assets/') ?>images/logo-light-icon.png" alt="homepage"
+                                class="light-logo" />
+                        </b-->
+                <!--End Logo icon -->
+                <!-- Logo text -- ><span>
+                            < !-- dark Logo text -- >
+                            <img src="< ?php echo base_url('assets/') ?>images/logo-text.png" alt="homepage"
+                                class="dark-logo" />
+                            < !-- Light Logo text -- >
+                            <img src="< ?php echo base_url('assets/') ?>images/logo-light-text.png" class="light-logo"
+                                alt="homepage" />
+                        </span>
+                        <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span>
+                </div>
+                    </a-->
+
+
+                <!--/div-->
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a
+                                class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item m-l-10"> <a
+                                class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown mega-dropdown"> <a
+                                class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="mdi mdi-information"></i></a>
+                            <div class="dropdown-menu animated slideInUp" style="z-index:99">
+                                <ul class="mega-dropdown-menu row">
+                                    <li class="col-lg-3 col-xlg-2 m-b-30">
+                                        <h4 class="m-b-20">Tentang Kami</h4>
+                                        <!-- CAROUSEL -->
+                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="carousel-item active">
+                                                    <div class="container"> <img class="d-block img-fluid"
+                                                            src="/assets/images/logo_dirjen.png" alt="First slide">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleControls"
+                                                role="button" data-slide="prev"> <span
+                                                    class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+                                                    class="sr-only">Previous</span> </a>
+                                            <a class="carousel-control-next" href="#carouselExampleControls"
+                                                role="button" data-slide="next"> <span
+                                                    class="carousel-control-next-icon" aria-hidden="true"></span> <span
+                                                    class="sr-only">Next</span> </a>
+                                        </div>
+                                        <!-- End CAROUSEL -->
+                                        <!-- End CAROUSEL -->
+                                    </li>
+                                    <!--li class="col-lg-3 m-b-30">
+                                        < ?php $this->load->view('front/about_simevi'); ?>
+                                    </li-->
+                                    <li class="col-lg-3  m-b-30">
+                                        <h4 class="m-b-20">Kontak Kami</h4>
+                                        <!-- Contact -->
+                                        <form>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="exampleInputname1"
+                                                    placeholder="Nama Lengkap">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="exampleTextarea" rows="3"
+                                                    placeholder="Pesan Anda"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-info">Kirim</button>
+                                        </form>
+                                    </li>
+                                    <li class="col-lg-3 col-xlg-4 m-b-30">
+                                        <h4 class="m-b-20">Daftar Link</h4>
+                                        <!-- List style -->
+                                        <ul class="list-style-none">
+                                            <li><a href="https://www.pertanian.go.id"><i
+                                                        class="fa fa-check text-success"></i> Kementerian Pertanian</a>
+                                            </li>
+                                            <li><a href="http://hortikultura.pertanian.go.id"><i
+                                                        class="fa fa-check text-success"></i> Ditjen Hortikultura</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== mdi-login-variant -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DIREKTORAT JENDERAL
+                                HORTIKULTURA<span class="mdi mdi-chevron-down"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up">
+                                <ul class="dropdown-user">
+
+                                    <li><a href="/auth/update_profile"><i class="ti-user"></i> Update Profile</a></li>
+                                    <li><a href="/auth/change_password"><i class="ti-wallet"></i> Change
+                                            Password</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/index.html"><i class="fa fa-power-off"></i>
+                                            Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- User profile -->
+                <div class="user-profile">
+                    <!-- User profile image -->
+                    <div class="profile-img">
+                        <img src="/assets/images/users/superadmin20211227210116_thumb.png"
+                            alt="DIREKTORAT JENDERAL HORTIKULTURA">
+                    </div>
+                    <!-- User profile text-->
+                    <div class="profile-text">
+                        <h5>DIREKTORAT JENDERAL HORTIKULTURA</h5>
+                        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"><i class="mdi mdi-settings"></i></a>
+
+                        <div class="dropdown-menu animated flipInY">
+                            <!-- text-->
+                            <a href="/auth/update_profile" class="dropdown-item"><i class="ti-user"></i> Update
+                                Profile</a>
+                            <!-- text-->
+                            <a href="/auth/change_password" class="dropdown-item"><i class="ti-wallet"></i> Change
+                                Pwd</a>
+                            <!-- text-->
+                            <div class="dropdown-divider"></div>
+                            <!-- text-->
+                            <a href="/index.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                            <!-- text-->
+                        </div>
+                    </div>
+                </div>
+                <!-- End User profile text-->
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+                        <li class="nav-normal-cap text-center">MENU UTAMA</li>
+
+
+                        <!-- jika menu tidak punya submenu -->
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark " href="#" aria-expanded="false"><i
+                                    class="mdi mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/dashboard"><i class="fa fa-circle-o"></i>
+                                        Utama</a> </li>
+                                <li><a href="/dashmap"><i class="fa fa-circle-o"></i>
+                                        Peta Sebaran</a> </li>
+                                <li><a href="/dashdaftar"><i class="fa fa-circle-o"></i>
+                                        Daftar penyaluran</a> </li>
+                            </ul>
+                        </li>
+                        <!-- jika menu tidak punya submenu -->
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark " href="#" aria-expanded="false"><i
+                                    class="mdi mdi mdi-medical-bag"></i><span class="hide-menu">Penyaluran</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/daftarsalur"><i class="fa fa-circle-o"></i>
+                                        Daftar Penyaluran</a> </li>
+                            </ul>
+                        </li>
+                        <!-- jika menu tidak punya submenu -->
+                        <li> <a class="waves-effect waves-dark " href="/reports" aria-expanded="false">
+                                <i class="mdi mdi mdi-chart-line"></i><span class="hide-menu">Laporan</span></a>
+                        </li>
+                        <li class="nav-small-cap">SETTING &amp; WIDGETS</li>
+                        <li> <a class="waves-effect waves-dark " href="/auth/log_list" aria-expanded="false"><i
+                                    class="mdi mdi-calendar-clock"></i><span class="hide-menu">Log System
+                                    Process </span></a>
+                        <li> <a class="waves-effect waves-dark " href="/company/update/1" aria-expanded="false"><i
+                                    class="mdi mdi-city"></i><span class="hide-menu">Company Profile
+                                </span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark " href="#" aria-expanded="false"><i
+                                    class="mdi mdi-human-male-female"></i><span class="hide-menu">User Management
+                                </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/auth/create"> Add User </a></li>
+                                <li><a href="/auth"> User List</a></li>
+                                <li><a href="/auth/deleted_list">Deleted List</a></li>
+                                <li><a href="/auth/change_password">Change Password</a></li>
+                                <li><a href="/auth/update_profile">Update
+                                        Profile</a></li>
+
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark " href="#" aria-expanded="false"><i
+                                    class="mdi mdi-transit-transfer"></i><span class="hide-menu">Usertype
+                                    Management</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/usertype/create"> Add Usertype </a></li>
+                                <li><a href="/usertype"> Usertype List</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark " href="#" aria-expanded="false"><i
+                                    class="mdi mdi-format-list-bulleted-type"></i><span class="hide-menu">Menu
+                                    Management</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/menu/create"> Add Menu </a></li>
+                                <li><a href="/menu"> Menu List</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark " href="#" aria-expanded="false"><i
+                                    class="mdi mdi-playlist-plus"></i><span class="hide-menu">SubMenu
+                                    Management</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/submenu/create"> Add SubMenu </a></li>
+                                <li><a href="/submenu"> SubMenu List</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark " href="#" aria-expanded="false"><i
+                                    class="mdi mdi-format-page-break"></i><span class="hide-menu">Menu Access
+                                    Management</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/menuaccess/create"> Add Menu Access</a></li>
+                                <li><a href="/menuaccess"> Menu Access List</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/index.html"><i class="mdi mdi-logout"></i>
+                                <span>Logout</span></a></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <div class="page-wrapper">
+
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">SIBANPEM</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    </ol>
+                </div>
+                <div class="col-md-9">
+                    <!-- left column -->
+
+                    <h5>
+                        <small class="text-muted">Sistem Informasi Bantuan Pemerintah untuk Hortikultura</small>
+                    </h5>
+
+                </div>
+                <div class="col-md-3">
+                    <!-- right column -->
+                    <ol class="breadcrumb">
+                        <h6>
+                            <li><small class="text-muted">(Data per Oktober 2021)</small></li>
+                        </h6>
+                    </ol>
+                </div>
+            </div>
+            <div </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Container fluid  -->
+                <!-- ============================================================== -->
+                <div class="container-fluid">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        <!-- Column -->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- Row -->
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <h2>Rp. 274.873.768.257 <i class="ti-angle-up font-14 text-success"></i>
+                                            </h2>
+                                            <h6>Volume Kontrak Bantuan Barang</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center text-right  p-l-0">
+                                            <div id="sparklinedash3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- Row -->
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <h2 class="">Rp. 23.814.542.600 <i
+                                                    class="ti-angle-up font-14 text-success"></i></h2>
+                                            <h6>Volume Kontrak Bantuan Uang</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center text-right p-l-0">
+                                            <div id="sparklinedash"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-card-no-pd">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    PETA SEBARAN BANTUAN
+                                    <div class="card-actions">
+                                        <a class="" data-action="collapse"><i class="ti-minus"></i></a>
+                                        <a class="btn-minimize" data-action="expand"><i
+                                                class="mdi mdi-arrow-expand"></i></a>
+                                        <!--//<a class="btn-close" data-action="close"><i class="ti-close"></i></a>//-->
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="table-responsive table-hover table-sales">
+                                                <table id="dataTable" class="table no-border">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Logo</th>
+                                                            <th>Nama Provinsi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/11"><img
+                                                                        src="/assets/images/logo/11.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. ACEH</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/12"><img
+                                                                        src="/assets/images/logo/12.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SUMATERA UTARA</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/13"><img
+                                                                        src="/assets/images/logo/13.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SUMATERA BARAT</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/14"><img
+                                                                        src="/assets/images/logo/14.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. RIAU</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/15"><img
+                                                                        src="/assets/images/logo/15.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. JAMBI</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/16"><img
+                                                                        src="/assets/images/logo/16.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SUMATERA SELATAN</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/17"><img
+                                                                        src="/assets/images/logo/17.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. BENGKULU</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/18"><img
+                                                                        src="/assets/images/logo/18.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. LAMPUNG</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/19"><img
+                                                                        src="/assets/images/logo/19.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. KEPULAUAN BANGKA BELITUN</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/21"><img
+                                                                        src="/assets/images/logo/21.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. KEPULAUAN RIAU</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/31"><img
+                                                                        src="/assets/images/logo/31.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. D.K.I JAKARTA</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/32"><img
+                                                                        src="/assets/images/logo/32.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. JAWA BARAT</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/33"><img
+                                                                        src="/assets/images/logo/33.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. JAWA TENGAH</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/34"><img
+                                                                        src="/assets/images/logo/34.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. D.I YOGYAKARTA</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/35"><img
+                                                                        src="/assets/images/logo/35.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. JAWA TIMUR</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/36"><img
+                                                                        src="/assets/images/logo/36.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. BANTEN</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/51"><img
+                                                                        src="/assets/images/logo/51.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. BALI</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/52"><img
+                                                                        src="/assets/images/logo/52.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. NUSA TENGGARA BARAT</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/53"><img
+                                                                        src="/assets/images/logo/53.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. NUSA TENGGARA TIMUR</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/61"><img
+                                                                        src="/assets/images/logo/61.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. KALIMANTAN BARAT</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/62"><img
+                                                                        src="/assets/images/logo/62.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. KALIMANTAN TENGAH</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/63"><img
+                                                                        src="/assets/images/logo/63.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. KALIMANTAN SELATAN</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/64"><img
+                                                                        src="/assets/images/logo/64.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. KALIMANTAN TIMUR</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/65"><img
+                                                                        src="/assets/images/logo/65.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. KALIMANTAN UTARA</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/71"><img
+                                                                        src="/assets/images/logo/71.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SULAWESI UTARA</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/72"><img
+                                                                        src="/assets/images/logo/72.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SULAWESI TENGAH</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/73"><img
+                                                                        src="/assets/images/logo/73.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SULAWESI SELATAN</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/74"><img
+                                                                        src="/assets/images/logo/74.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SULAWESI TENGGARA</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/75"><img
+                                                                        src="/assets/images/logo/75.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. GORONTALO</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/76"><img
+                                                                        src="/assets/images/logo/76.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. SULAWESI BARAT</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/81"><img
+                                                                        src="/assets/images/logo/81.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. MALUKU</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/82"><img
+                                                                        src="/assets/images/logo/82.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. MALUKU UTARA</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/91"><img
+                                                                        src="/assets/images/logo/91.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. PAPUA BARAT</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:30px"><a
+                                                                    href="/sibanpem/View_detail_prov/92"><img
+                                                                        src="/assets/images/logo/92.png"
+                                                                        alt="logo" /></a>
+                                                            </td>
+                                                            <td>PROV. PAPUA</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div id="visitfromworld"
+                                                style="width:100%!important; height:410px; z-index:1">
+                                                <div class="leaflet-bottom leaflet-left">
+                                                    <div class="panel-body-lg">
+                                                        <a href="< ?php echo base_url() ?>"
+                                                            class="logo d-flex align-items-center">
+                                                            <img src="< ?php echo base_url('assets/images/') ?>logo-light-text.png"
+                                                                alt="navbar brand" class="navbar-brand" height="45px">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="col-lg-8 col-xlg-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">REKAPITULASI BANTUAN BERDASAR KEGIATAN & AKUN BELANJA</h5>
+                                    <h6 class="card-subtitle">Tahun 2021</h6>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xlg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Bantuan Per Kegiatan
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="col-lg-12 col-xlg-12">
+                                                        <canvas id="totalIncomeChart" style="height: 325px;"></canvas>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="col-lg-12 col-xlg-12">
+                                                        <ul>
+                                                            <li><small class="text-muted">1771 Peningkatan Sayuran dan
+                                                                    Tanaman Obat</small>
+                                                            </li>
+                                                            <li><small class="text-muted">1773 Perlindungan
+                                                                    Hortikultura</small></li>
+                                                            <li><small class="text-muted">1774 Peningkatan Usaha
+                                                                    Dukungan Manajemen dan
+                                                                    Teknis Lainnya pada Ditjen Hortikultura</small></li>
+                                                            <li><small class="text-muted">4581 Perbenihan
+                                                                    Hortikultura</small></li>
+                                                            <li><small class="text-muted">5886 Peningkatan Produksi Buah
+                                                                    dan
+                                                                    Florikultura</small></li>
+                                                            <li><small class="text-muted">5887 Pengolahan dan Pemasaran
+                                                                    Hasil
+                                                                    Hortikultura</small></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-xlg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Bantuan Per Kegiatan
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="col-lg-12 col-xlg-12">
+                                                        <canvas id="totalAKunChart" style="height: 325px;"></canvas>
+                                                    </div>
+                                                    <div class="col-lg-12 col-xlg-12">
+                                                        <ul>
+                                                            <li><small class="text-muted">526112 Beban Peralatan dan
+                                                                    Mesin untuk diserahkan
+                                                                    kepada Masyarakat dan Pemda</small></li>
+                                                            <li><small class="text-muted">526113 Beban Gedung dan
+                                                                    Bangunan untuk diserahkan
+                                                                    kepada Masyarakat dan Pemda</small></li>
+                                                            <li><small class="text-muted">526115 Beban Fisik lainnya
+                                                                    untuk diserahkan kepada
+                                                                    Masyarakat dan Pemda</small></li>
+                                                            <li><small class="text-muted">526311 Beban Barang Bantuan
+                                                                    lainnya untuk
+                                                                    diserahkan kepada Masyarakat dan Pemda</small></li>
+                                                            <li><small class="text-muted">526321 Belanja barang untuk
+                                                                    bantuan lainnya untuk
+                                                                    diserahkan kepada masyarakat danPemda dalam bentuk
+                                                                    Uang</small></li>
+                                                            <li><small class="text-muted">526322 Belanja barang untuk
+                                                                    bantuan lainnya khusus
+                                                                    bantuan Covid</small></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-xlg-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="align-items-center">Top 10 Provinsi Penerima Bantuan</h4>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="nav nav-pills nav-secondary align-items-center" id="pills-tab"
+                                        role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                                                href="#pills-home" role="tab" aria-controls="pills-home"
+                                                aria-selected="true"><i class="flaticon-download-1"></i>
+                                                Terbesar</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
+                                                href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                                aria-selected="false"><i class="flaticon-up-arrow-3"></i></i>
+                                                Terkecil</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content mt-2 mb-2" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                            aria-labelledby="pills-home-tab">
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(33,'PROV. JAWA TENGAH')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/33.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                8.240.677.415</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. JAWA TENGAH</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(32,'PROV. JAWA BARAT')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/32.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                7.844.224.112</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. JAWA BARAT</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(35,'PROV. JAWA TIMUR')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/35.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                5.356.578.634</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. JAWA TIMUR</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(52,'PROV. NUSA TENGGARA BARAT')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/52.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                3.562.498.527</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. NUSA TENGGARA BARAT</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(14,'PROV. RIAU')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/14.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                3.157.698.637</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. RIAU</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(11,'PROV. ACEH')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/11.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                3.107.288.801</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. ACEH</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(74,'PROV. SULAWESI TENGGARA')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/74.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.870.246.214</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SULAWESI TENGGARA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(12,'PROV. SUMATERA UTARA')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/12.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.864.876.380</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SUMATERA UTARA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(17,'PROV. BENGKULU')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/17.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.661.550.500</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. BENGKULU</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(73,'PROV. SULAWESI SELATAN')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/73.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.450.024.813</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SULAWESI SELATAN</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(53,'PROV. NUSA TENGGARA TIMUR')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/53.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.413.707.791</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. NUSA TENGGARA TIMUR</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(72,'PROV. SULAWESI TENGAH')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/72.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.112.652.069</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SULAWESI TENGAH</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(16,'PROV. SUMATERA SELATAN')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/16.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.082.902.750</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SUMATERA SELATAN</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(61,'PROV. KALIMANTAN BARAT')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/61.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                2.053.893.514</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. KALIMANTAN BARAT</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(34,'PROV. D.I. YOGYAKARTA')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/34.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                1.976.087.712</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. D.I. YOGYAKARTA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(51,'PROV. BALI')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/51.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                1.840.793.694</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. BALI</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(62,'PROV. KALIMANTAN TENGAH')">
+                                                        <span class="stamp stamp-md bg-success mr-3">
+                                                            <img src="/assets/images/logo/62.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                1.813.475.203</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. KALIMANTAN TENGAH</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                            aria-labelledby="pills-profile-tab">
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(65,'PROV. KALIMANTAN UTARA')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/65.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                103.433.792</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. KALIMANTAN UTARA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(31,'PROV. D.K.I. JAKARTA')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/31.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                110.650.000</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. D.K.I. JAKARTA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(71,'PROV. SULAWESI UTARA')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/71.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                278.125.706</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SULAWESI UTARA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(92,'PROV. PAPUA BARAT')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/92.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                341.084.234</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. PAPUA BARAT</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(75,'PROV. GORONTALO')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/75.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                351.327.089</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. GORONTALO</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(21,'PROV. KEPULAUAN RIAU')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/21.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                424.555.851</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. KEPULAUAN RIAU</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(91,'PROV. PAPUA')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/91.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                480.133.823</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. PAPUA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(82,'PROV. MALUKU UTARA')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/82.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                687.450.440</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. MALUKU UTARA</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(19,'PROV. KEPULAUAN BANGKA BELITUNG')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/19.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                748.032.845</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. KEPULAUAN BANGKA
+                                                            BELITUNG</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(64,'PROV. KALIMANTAN TIMUR')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/64.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                797.792.413</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. KALIMANTAN TIMUR</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(13,'PROV. SUMATERA BARAT')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/13.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                821.389.670</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SUMATERA BARAT</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(81,'PROV. MALUKU')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/81.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                873.648.568</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. MALUKU</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(15,'PROV. JAMBI')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/15.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                979.598.395</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. JAMBI</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(76,'PROV. SULAWESI BARAT')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/76.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                1.266.634.718</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. SULAWESI BARAT</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(36,'PROV. BANTEN')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/36.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                1.491.674.507</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. BANTEN</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(18,'PROV. LAMPUNG')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/18.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                1.504.424.925</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. LAMPUNG</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card p-0">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="javascript:void(0)" id="tampilProvinsi"
+                                                        title="Detail Bantuan"
+                                                        onclick="tampilProvinsi(63,'PROV. KALIMANTAN SELATAN')">
+                                                        <span class="stamp stamp-md bg-danger mr-3">
+                                                            <img src="/assets/images/logo/63.png" alt="logo" />
+                                                        </span>
+                                                    </a>
+                                                    <div>
+                                                        <h5 class="mb-1"><b>Rp.
+                                                                1.520.030.426</b>
+                                                        </h5>
+                                                        <small class="text-muted">PROV. KALIMANTAN SELATAN</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">KINERJA PENYALURAN BANTUAN</h5>
+                                    <h6 class="card-subtitle">Tahun Anggaran 2021</h6>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xlg-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Penyaluran Bantuan Barang
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-info w-100" role="progressbar"
+                                                            style="width: 100%; height: 10px;" aria-valuenow="100"
+                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Volume Nilai Kontrak</p>
+                                                        <p class="text-muted mb-0">Rp. 274.873.768.257</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 96%; height: 10px;" aria-valuenow="96"
+                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai SPM/SP2D</p>
+                                                        <p class="text-muted mb-0">Rp. 263.773.980.415</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 92%; height: 10px;" aria-valuenow="92"
+                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai Disalurkan</p>
+                                                        <p class="text-muted mb-0">Rp. 253.413.963.736</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 83%; height: 10px;" aria-valuenow="83"
+                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai Dikonfirmasi Penerima</p>
+                                                        <p class="text-muted mb-0">Rp. 226.836.182.335</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 87%; height: 10px;" aria-valuenow="87"
+                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai BAST</p>
+                                                        <p class="text-muted mb-0">Rp. 239.132.893.075</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 32%; height: 10px; background-color:#dc3545!important"
+                                                            aria-valuenow="32" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai Telah direview</p>
+                                                        <p class="text-muted mb-0">Rp. 86.867.878.758</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xlg-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Penyaluran Uang
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success w-100" role="progressbar"
+                                                            style="width: 60%; height: 10px; background-color:#1976d2!important;"
+                                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai SK</p>
+                                                        <p class="text-muted mb-0">Rp. 23.674.542.600</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 57%; height: 10px;background-color:#FFC000!important;"
+                                                            aria-valuenow="57" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">SPM Yang Telah Di Input</p>
+                                                        <p class="text-muted mb-0">Rp. 13.545.895.280</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 56%; height: 10px; background-color:#FFC000!important;"
+                                                            aria-valuenow="56" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai Disalurkan</p>
+                                                        <p class="text-muted mb-0">Rp. 13.265.895.280</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 51%; height: 10px; background-color:#e83e8c!important;"
+                                                            aria-valuenow="51" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai Dikonfirmasi Penerima</p>
+                                                        <p class="text-muted mb-0">Rp. 12.189.455.280</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 23%; height: 10px; background-color:#F52B30!important;"
+                                                            aria-valuenow="23" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai BAST</p>
+                                                        <p class="text-muted mb-0">Rp. 5.356.230.000</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 20%; height: 10px; background-color:#dc3545!important;"
+                                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between mt-2">
+                                                        <p class="text-muted mb-0">Nilai Telah direview</p>
+                                                        <p class="text-muted mb-0">Rp. 360.000.000</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h6 class="card-subtitle"> <small>(Data per Oktober 2021)</small></h6>
+                                    </br>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Row -->
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Right sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- .right-sidebar -->
+
+                    <!-- /.row -->
+                </div>
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <footer class="footer">
+                    &copy;
+                    <small>
+                        <script>document.write(new Date().getFullYear())</script>
+                    </small><small>Tim Pengembang Ditjen Hortikultura</small>
+                    &#x26A0;
+                    <small>Versi Protoype</small>
+                </footer>
+                <!-- ============================================================== -->
+                <!-- End footer -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="/assets/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="/assets/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="/assets/template/back/js/jquery.slimscroll.js"></script>
+        <!--Wave Effects -->
+        <script src="/assets/template/back/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="/assets/template/back/js/sidebarmenu.js"></script>
+        <!--stickey kit -->
+        <script src="/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+        <!--Custom JavaScript -->
+        <script src="/assets/template/back/js/custom.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- This page plugins -->
+        <!-- ============================================================== -->
+
+        <!-- sparkline chart -->
+        <script src="/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- Style switcher -->
+        <!-- ============================================================== -->
+        <script src="/assets/plugins/leaflet/dist/leaflet.js"></script>
+        <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="/assets/peta/turf.min.js"></script>
+        <script src="/assets/peta/leaflet-geoman.min.js"></script>
+        <script src="/assets/peta/leaflet.filelayer.js"></script>
+        <script src="/assets/peta/leaflet-providers.js"></script>
+        <script src="/assets/peta/L.Control.Locate.min.js"></script>
+        <script src="/assets/peta/leaflet.markercluster.js"></script>
+        <script src="/assets/peta/peta.js"></script>
+        <script src="/assets/peta/mapbox-gl.js"></script>
+        <script src="/assets/peta/leaflet-mapbox-gl.js"></script>
+        <script src="/assets/peta/leaflet.groupedlayercontrol.min.js"></script>
+        <script src="/assets/peta/leaflet.browser.print.js"></script>
+        <script src="/assets/peta/leaflet.browser.print.utils.js"></script>
+        <script src="/assets/peta/leaflet.browser.print.sizes.js"></script>
+        <script src="/assets/peta/dom-to-image.min.js"></script>
+        <script src="/assets/plugins/Chart.js/Chart.min.js"></script>
+        <script src="/assets/peta/geojson_indonesia.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTable').dataTable({
+                    "filter": false,
+                    "info": false,
+                    "scrollY": "385px",
+                    "responsive": 'true',
+                    "paging": false,
+                    "bSort": false,
+                    "fnDrawCallback": function (oSettings) {
+                        $(oSettings.nTHead).hide();
+                    }
+                });
+
+                // Maping
+                var useMap = document.getElementById("visitfromworld");
+                if (useMap) {
+                    var posisi = [-1.0546279422758742, 116.71875000000001];
+                    var zoom = 5;
+
+                    var map = L.map('visitfromworld').setView(posisi, zoom);
+                    var marker_provinsi = [];
+                    var baseLayers = getBaseLayers(map,
+                        'pk.eyJ1Ijoic2hpc2hlbXVsIiwiYSI6ImNrdXU2eGk1MzFvODAzMHM3Y2xoZWU2YjMifQ.zdtiMkI6oSi8mfO6NTawiA'
+                    );
+                    geoLocation(map);
+                    cetakPeta(map);
+                    L.control.scale().addTo(map);
+                    var mainlayer = L.control.layers(baseLayers, null, {
+                        position: 'topleft',
+                        collapsed: true
+                    }).addTo(map);
+                }
+
+                function getColor(d) {
+                    return d == 1 ? '#E2F516' :
+                        d == 2 ? '#6AFB92' :
+                            d == 3 ? '#046307' :
+                                '#F2DBA7';
+                }
+
+                function style(feature) {
+                    return {
+                        fillColor: getColor(2),
+                        weight: 1,
+                        opacity: 1,
+                        color: 'white',
+                        dashArray: '0',
+                        fillOpacity: 0.5
+                    };
+                }
+
+                function highlightFeature(e) {
+                    var layer = e.target;
+                    layer.setStyle({
+                        weight: 1,
+                        color: '#666',
+                        dashArray: '',
+                        fillOpacity: 0.25
+                    });
+
+                    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                        layer.bringToFront();
+                    }
+                    info.update(layer.feature.properties);
+                }
+
+                function resetHighlight(e) {
+                    geojson_indonesia.resetStyle(e.target);
+
+                    info.update();
+                }
+
+                function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight,
+                        'click': function (e) {
+                            View_modal(e.target);
+                        }
+                    });
+                }
+
+                geojson_indonesia = L.geoJson(geojson_indonesia, {
+                    style: style,
+                    onEachFeature: onEachFeature
+                }).addTo(map);
+
+                info = L.control();
+
+                info.onAdd = function (map) {
+                    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+                    this.update();
+                    return this._div;
+                };
+
+                // method that we will use to update the control based on feature properties passed
+                info.update = function (props) {
+                    this._div.innerHTML = '<b>Provinsi: ' + (props ?
+                        '' + props.NAME_1 +
+                        '' :
+                        '');
+                };
+
+                info.addTo(map);
+
+                function View_modal(e) {
+                    var name = e.feature.properties.NAME_1;
+                    var code = e.feature.properties.KODE;
+                    window.location = "/sibanpem/View_detail_prov/" + code;
+                }
+                // end maping
+
+
+
+                var ctx2 = document.getElementById("totalIncomeChart").getContext("2d");
+                var data2 = {
+                    labels: ["1771", "1773", "1774", "4581", "5886", "5886"],
+                    datasets: [{
+                        label: "Total BAST",
+                        fillColor: "#009efb",
+                        strokeColor: "#009efb",
+                        highlightFill: "#009efb",
+                        highlightStroke: "#009efb",
+                        data: [78033490278, 3168283190, 48300000, 76032698766, 34090981097, 20205606089]
+                    }]
+                };
+
+                var chart2 = new Chart(ctx2).Bar(data2, {
+                    scaleBeginAtZero: true,
+                    scaleShowGridLines: true,
+                    scaleGridLineColor: "rgba(0,0,0,.005)",
+                    scaleGridLineWidth: 0,
+                    scaleShowHorizontalLines: true,
+                    scaleShowVerticalLines: true,
+                    barShowStroke: true,
+                    barStrokeWidth: 0,
+                    tooltipCornerRadius: 2,
+                    barDatasetSpacing: 3,
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                    responsive: true
+                });
+
+                var ctx3 = document.getElementById("totalAKunChart").getContext("2d");
+                var data3 = {
+                    labels: ["526112", "526113", "526115", "526311", "526321", "526322"],
+                    datasets: [{
+                        label: "Total BAST",
+                        fillColor: "#009efb",
+                        strokeColor: "#009efb",
+                        highlightFill: "#009efb",
+                        highlightStroke: "#009efb",
+                        data: [7941616195, 5570642597, 604625000, 175162288170, 6356922500, 5441852300]
+                    }]
+                };
+
+                var chart3 = new Chart(ctx3).Bar(data3, {
+                    scaleBeginAtZero: true,
+                    scaleShowGridLines: true,
+                    scaleGridLineColor: "rgba(0,0,0,.005)",
+                    scaleGridLineWidth: 0,
+                    scaleShowHorizontalLines: true,
+                    scaleShowVerticalLines: true,
+                    barShowStroke: true,
+                    barStrokeWidth: 0,
+                    tooltipCornerRadius: 2,
+                    barDatasetSpacing: 3,
+                    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                    responsive: true
+                });
+
+                var sparklineLogin = function () {
+                    $('#sparklinedash').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
+                        type: 'bar',
+                        height: '50',
+                        barWidth: '2',
+                        resize: true,
+                        barSpacing: '5',
+                        barColor: '#26c6da'
+                    });
+                    $('#sparklinedash2').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
+                        type: 'bar',
+                        height: '50',
+                        barWidth: '2',
+                        resize: true,
+                        barSpacing: '5',
+                        barColor: '#7460ee'
+                    });
+                    $('#sparklinedash3').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
+                        type: 'bar',
+                        height: '50',
+                        barWidth: '2',
+                        resize: true,
+                        barSpacing: '5',
+                        barColor: '#03a9f3'
+                    });
+                    $('#sparklinedash4').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
+                        type: 'bar',
+                        height: '50',
+                        barWidth: '2',
+                        resize: true,
+                        barSpacing: '5',
+                        barColor: '#f62d51'
+                    });
+
+                }
+                var sparkResize;
+
+                $(window).resize(function (e) {
+                    clearTimeout(sparkResize);
+                    sparkResize = setTimeout(sparklineLogin, 500);
+                });
+                sparklineLogin();
+
+            });
+        </script>
+</body>
+
+</html>
